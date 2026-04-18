@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>RAWR-X-GAMES</title>
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div id="app">
+      <!-- Login Screen -->
+      <section id="login-screen" class="screen active">
+        <div class="dirty-overlay"></div>
+        <div class="menu-content">
+          <h1 class="glitch main-title" data-text="TERMINAL">TERMINAL</h1>
+          <p class="tagline">Sign in to your subculture.</p>
+          <div class="menu-buttons" style="margin-top:20px;">
+            <input type="text" id="username-input" class="punk-input" placeholder="Enter Handle..." style="padding:15px; font-size:1.2rem; background:#111; color:var(--green); border:2px solid var(--pink); font-family:var(--font-main); text-align:center; box-shadow:4px 4px 0px var(--green); text-transform:uppercase;" />
+            <button id="btn-login" class="punk-btn">LOG IN</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Main Menu -->
+      <section id="menu-screen" class="screen hidden">
+        <div class="dirty-overlay"></div>
+        <div class="menu-content" style="margin-top:10%;">
+          <p class="tagline" style="margin-bottom:5px;">Welcome Back,</p>
+          <h2 id="menu-username" class="glitch" data-text="USER">USER</h2>
+          <div class="stats-bar" style="margin-top:15px;">
+            <span>Tickets: <span id="ticket-count">0</span></span>
+            <span>Level: <span id="player-level">1</span></span>
+          </div>
+          <div class="menu-buttons">
+            <button id="btn-play" class="punk-btn">The Midway (Games)</button>
+            <button id="btn-prizes" class="punk-btn">Prize Wall (Store)</button>
+            <button id="btn-profile" class="punk-btn">Flex Room (Profile)</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- The Flex Room / Profile Dashboard -->
+      <section id="profile-screen" class="screen hidden circus-stripes">
+        <div class="clothes-line"></div>
+        <h2 class="glitch" style="text-shadow: 2px 2px 0 #000;" data-text="MY SPACE">MY SPACE</h2>
+        <p class="handwritten section-desc" style="background:#000; padding:5px;">Your digital hoard.</p>
+        <div class="stats-bar">
+          <span>Tickets: <span id="prof-ticket-count">0</span></span>
+          <span>Lifetime: <span id="prof-lifetime-count">0</span></span>
+        </div>
+        <p class="handwritten" style="color:var(--green); font-size:1.4rem;">Next Level At: <span id="prof-next-lvl">100</span> tickets</p>
+        <div class="prize-list" id="my-prizes-list">
+           <!-- Rendered owned prizes here -->
+        </div>
+        <button class="punk-btn back-btn">&lt; Back</button>
+      </section>
+
+      <!-- The Midway (Game Selection) -->
+      <section id="midway-screen" class="screen hidden">
+        <h2 class="glitch" data-text="THE MIDWAY">THE MIDWAY</h2>
+        <div class="board-game-wrap">
+          <div class="board-path-container">
+            <!-- Winding Path Graphics (CSS driven) -->
+            <div class="board-node node-1"><button class="play-btn node-btn" data-game="safety-pin-sniper">Safety<br>Pin</button></div>
+            <div class="board-node node-2"><button class="play-btn node-btn" data-game="liner-layer">Liner<br>Layer</button></div>
+            <div class="board-node node-3"><button class="play-btn node-btn" data-game="plushie-plunge">Plushie<br>Plunge</button></div>
+            <div class="board-node node-4"><button class="play-btn node-btn" data-game="chain-linker">Chain<br>Linker</button></div>
+            <div class="board-node node-5"><button class="play-btn node-btn" data-game="vinyl-spin">Vinyl<br>Spin</button></div>
+            <div class="board-node node-6"><button class="play-btn node-btn" data-game="skull-shuffle">Skull<br>Shuffle</button></div>
+            <div class="board-node node-7"><button class="play-btn node-btn" data-game="peg-punk">Peg<br>Punk</button></div>
+            <div class="board-node node-8"><button class="play-btn node-btn" data-game="vans-vault">Vans<br>Vault</button></div>
+          </div>
+        </div>
+        <button class="punk-btn back-btn" style="z-index: 20;">&lt; Back</button>
+      </section>
+
+      <!-- Mini-Game Container -->
+      <section id="game-screen" class="screen hidden">
+        <div class="game-header">
+           <h2 id="current-game-title" class="handwritten">Game Title</h2>
+           <div class="game-stats-top">
+             <div class="game-timer">Time: <span id="timer-display">45</span></div>
+             <div class="game-score">Score: <span id="score-display">0</span></div>
+           </div>
+        </div>
+        
+        <div id="canvas-container">
+           <canvas id="game-canvas"></canvas>
+        </div>
+        
+        <!-- How To Play Overlay -->
+        <div class="game-overlays hidden" id="game-intro-overlay">
+           <div class="overlay-box" style="border-color:var(--green); box-shadow:8px 8px 0 var(--pink);">
+             <h3 class="glitch" data-text="HOW TO PLAY">HOW TO PLAY</h3>
+             <p id="intro-desc" style="font-family:var(--font-sec); font-size:2rem; margin:20px 0; max-width:80%;">Instructions here.</p>
+             <button id="btn-start-game" class="punk-btn">START</button>
+           </div>
+        </div>
+
+        <div class="game-overlays hidden" id="game-over-overlay">
+           <div class="overlay-box">
+             <h3 class="glitch" data-text="GAME OVER">GAME OVER</h3>
+             <p>Tickets Earned: <span id="earned-tickets" class="pink-text">0</span></p>
+             <button id="btn-exit-game" class="punk-btn">Return</button>
+           </div>
+        </div>
+      </section>
+
+      <!-- Prize Wall -->
+      <section id="prize-screen" class="screen hidden circus-stripes">
+        <div class="clothes-line"></div>
+        <h2 class="glitch" style="text-shadow: 2px 2px 0 #000;" data-text="PRIZE WALL">PRIZE WALL</h2>
+        <p class="handwritten section-desc" style="background:#000; padding:5px;">Spend tickets. Unlock pure aesthetic.</p>
+        <p class="wallet" style="background:#000; padding:5px; margin-bottom: 10px;">Wallet: <span id="prize-ticket-count" class="green-text">0</span> tickets</p>
+        <div class="prize-list" id="prize-list">
+           <!-- Dynamic Prizes inserted via JS -->
+        </div>
+        <button class="punk-btn back-btn">&lt; Back</button>
+      </section>
+    </div>
+    
+    <script src="./js/game-utils.js"></script>
+    <script src="./js/economy.js"></script>
+    <script src="./js/games/safety-pin-sniper.js"></script>
+    <script src="./js/games/liner-layer.js"></script>
+    <script src="./js/games/plushie-plunge.js"></script>
+    <script src="./js/games/chain-linker.js"></script>
+    <script src="./js/games/vinyl-spin.js"></script>
+    <script src="./js/games/skull-shuffle.js"></script>
+    <script src="./js/games/peg-punk.js"></script>
+    <script src="./js/games/vans-vault.js"></script>
+    <script src="./js/main.js"></script>
+  </body>
+</html>
