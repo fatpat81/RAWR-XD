@@ -104,6 +104,8 @@ h1, h2, h3, .handwritten {
   position: relative;
   transition: all 0.2s;
   box-shadow: 4px 4px 0px var(--green);
+  touch-action: manipulation;
+  z-index: 50;
 }
 .punk-btn:active {
   top: 4px;
@@ -180,7 +182,15 @@ h1, h2, h3, .handwritten {
    opacity: 0.8;
 }
 
-.back-btn { position: absolute; bottom: 20px; left: 20px; font-size: 1rem; padding: 10px 15px; }
+.back-btn { position: absolute; bottom: 20px; left: 20px; font-size: 1rem; padding: 10px 15px; z-index: 9999 !important; }
+
+/* Menus */
+#login-screen {
+  background: radial-gradient(circle at center, #2e0c2e 0%, #111111 60%);
+}
+#menu-screen {
+  background: repeating-conic-gradient(#111 0% 5%, #1a051a 5% 10%) center / 150px 150px;
+}
 
 /* Game Screen */
 #game-screen { padding: 0; }

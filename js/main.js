@@ -11,7 +11,9 @@ function updateUI() {
    if(!Economy.username) return;
    Economy.loadState();
    
-   document.getElementById('menu-username').innerText = Economy.username;
+   const title = document.getElementById('menu-username');
+   title.innerText = Economy.username;
+   title.setAttribute('data-text', Economy.username); // Update glitch attribute to stop flicker
    
    // Top bars
    document.getElementById('ticket-count').innerText = Economy.tickets;
@@ -260,6 +262,7 @@ document.addEventListener('DOMContentLoaded', () => {
                const earned = Math.floor(score / 5);
                Economy.addTickets(earned);
                Economy.updateGameScore(gameId, score);
+               Economy.checkLevelUp();
                
                document.getElementById('earned-tickets').innerText = earned;
                document.getElementById('game-over-overlay').classList.remove('hidden');
