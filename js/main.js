@@ -175,10 +175,10 @@ document.addEventListener('DOMContentLoaded', () => {
                btn.disabled = false;
                highestUnlockedGame = index;
                
-               // To unlock the NEXT game, they must have scored 100 passing points here
-               if(!Economy.gameScores || !Economy.gameScores[id] || Economy.gameScores[id] < 100) {
-                  isUnlocked = false; 
-               }
+               // All games unlocked by default
+               // if(!Economy.gameScores || !Economy.gameScores[id] || Economy.gameScores[id] < 100) {
+               //    isUnlocked = false; 
+               // }
             } else {
                node.classList.add('locked-node');
                btn.disabled = true;
@@ -188,7 +188,7 @@ document.addEventListener('DOMContentLoaded', () => {
       
       // Update path step grey-out locking
       const gameIndices = [5, 12, 22, 32, 42, 52, 60, 68];
-      const maxUnlockStep = isUnlocked ? 999 : gameIndices[highestUnlockedGame] + 2; 
+      const maxUnlockStep = 999; 
       
       document.querySelectorAll('.candyland-step').forEach(step => {
          const idx = parseInt(step.dataset.index);
