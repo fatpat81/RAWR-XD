@@ -15,7 +15,9 @@ window.PegPunk = class PegPunk {
     for(let y=150; y<this.height-150; y+=80) {
         let offset = (y % 160 === 0) ? 0 : 40;
         for(let x=40+offset; x<this.width-30; x+=80) {
-            this.pegs.push({x: x, y: y, r: 8});
+            let rx = x + (Math.random() * 30 - 15);
+            let ry = y + (Math.random() * 30 - 15);
+            this.pegs.push({x: rx, y: ry, r: 8});
         }
     }
 
@@ -82,7 +84,9 @@ window.PegPunk = class PegPunk {
     for(let y=150; y<this.height-150; y+=80) {
         let offset = (y % 160 === 0) ? 0 : 40;
         for(let x=40+offset; x<this.width-30; x+=80) {
-            this.pegs.push({x: x, y: y, r: 8});
+            let rx = x + (Math.random() * 30 - 15);
+            let ry = y + (Math.random() * 30 - 15);
+            this.pegs.push({x: rx, y: ry, r: 8});
         }
     }
     this.slots = [
@@ -165,7 +169,7 @@ window.PegPunk = class PegPunk {
   }
 
   draw(timestamp) {
-    window.GameUtils.drawPlinkoBoard(this.ctx, this.width, this.height, timestamp);
+    window.GameUtils.drawPlinkoBoard(this.ctx, this.width, this.height, timestamp, this.pegs);
     
     // Draw slots at bottom
     for(let s of this.slots) {

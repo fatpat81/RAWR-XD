@@ -36,8 +36,15 @@ function initPrizeWall() {
    const list = document.getElementById('prize-list');
    list.innerHTML = '';
    Economy.prizes.forEach(p => {
-      // Hide items strictly above the player's level (Level Gated Display)
-      if(p.lvl > Economy.level) return;
+      // Game Score Gated Display for extravagant items
+      if(p.reqGame) {
+         if (!Economy.gameScores || !Economy.gameScores[p.reqGame] || Economy.gameScores[p.reqGame] < p.reqScore) {
+             return; // Hide until player beats the game
+         }
+      } else {
+         // Hide regular items strictly above the player's level (Level Gated Display)
+         if(p.lvl > Economy.level) return;
+      }
 
       const div = document.createElement('div');
       const isUnlocked = Economy.unlockedPrizes.includes(p.id);
@@ -96,15 +103,16 @@ function buildCandylandPath() {
    const container = document.querySelector('.board-path-container');
    if(!container) return;
 
-   const numSteps = 70;
-   const trackHeight = 1200; // Must match CSS
+   const numSteps = 120;
+   const trackHeight = 2000; // Must match CSS
    const stepClasses = ['step-pink', 'step-lime', 'step-cyan', 'step-check'];
    
    const GAME_ORDER = [
      'safety-pin-sniper', 'liner-layer', 'plushie-plunge', 'chain-linker',
-     'vinyl-spin', 'skull-shuffle', 'peg-punk', 'vans-vault'
+     'vinyl-spin', 'skull-shuffle', 'peg-punk', 'vans-vault',
+     'neon-slots', 'hypnotic-wheel', 'devils-dice', 'razor-roulette', 'blackjack-brawl'
    ];
-   const gameIndices = [5, 12, 22, 32, 42, 52, 60, 68];
+   const gameIndices = [5, 12, 22, 32, 42, 52, 60, 68, 78, 88, 98, 108, 116];
 
    // Generate the geometric path
    for(let i=0; i<numSteps; i++) {
@@ -160,7 +168,8 @@ document.addEventListener('DOMContentLoaded', () => {
       
       const GAME_ORDER = [
         'safety-pin-sniper', 'liner-layer', 'plushie-plunge', 'chain-linker',
-        'vinyl-spin', 'skull-shuffle', 'peg-punk', 'vans-vault'
+        'vinyl-spin', 'skull-shuffle', 'peg-punk', 'vans-vault',
+        'neon-slots', 'hypnotic-wheel', 'devils-dice', 'razor-roulette', 'blackjack-brawl'
       ];
       
       let isUnlocked = true; // Game 1 is always unlocked
@@ -187,7 +196,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
       
       // Update path step grey-out locking
-      const gameIndices = [5, 12, 22, 32, 42, 52, 60, 68];
+      const gameIndices = [5, 12, 22, 32, 42, 52, 60, 68, 78, 88, 98, 108, 116];
       const maxUnlockStep = 999; 
       
       document.querySelectorAll('.candyland-step').forEach(step => {
@@ -252,6 +261,21 @@ document.addEventListener('DOMContentLoaded', () => {
          } else if (gameId === 'vans-vault') {
            titleEl.innerText = "Vans Vault";
            descEl.innerText = "Tap to spin, tap to stop. Match 2 or 3 subculture icons to win big tickets!";
+         } else if (gameId === 'neon-slots') {
+           titleEl.innerText = "Neon Slots";
+           descEl.innerText = "Tap to hit the slots. Match 3 symbols to win big.";
+         } else if (gameId === 'hypnotic-wheel') {
+           titleEl.innerText = "Hypnotic Wheel";
+           descEl.innerText = "Tap to spin the massive wheel of fortune!";
+         } else if (gameId === 'devils-dice') {
+           titleEl.innerText = "Devil's Dice";
+           descEl.innerText = "Tap to roll the dice. 7 or 11 wins big!";
+         } else if (gameId === 'razor-roulette') {
+           titleEl.innerText = "Razor Roulette";
+           descEl.innerText = "Tap to drop the ball in the spinning chamber.";
+         } else if (gameId === 'blackjack-brawl') {
+           titleEl.innerText = "Blackjack Brawl";
+           descEl.innerText = "Hit or Stand to get closer to 21 than the dealer.";
          }
 
          document.getElementById('btn-start-game').onclick = () => {
@@ -277,6 +301,11 @@ document.addEventListener('DOMContentLoaded', () => {
             else if(gameId === 'skull-shuffle') currentGame = new window.SkullShuffle('game-canvas', onGameOver);
             else if(gameId === 'peg-punk') currentGame = new window.PegPunk('game-canvas', onGameOver);
             else if(gameId === 'vans-vault') currentGame = new window.VansVault('game-canvas', onGameOver);
+            else if(gameId === 'neon-slots') currentGame = new window.NeonSlots('game-canvas', onGameOver);
+            else if(gameId === 'hypnotic-wheel') currentGame = new window.HypnoticWheel('game-canvas', onGameOver);
+            else if(gameId === 'devils-dice') currentGame = new window.DevilsDice('game-canvas', onGameOver);
+            else if(gameId === 'razor-roulette') currentGame = new window.RazorRoulette('game-canvas', onGameOver);
+            else if(gameId === 'blackjack-brawl') currentGame = new window.BlackjackBrawl('game-canvas', onGameOver);
 
             if(currentGame) currentGame.start();
          };

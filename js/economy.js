@@ -60,7 +60,86 @@ window.Economy = {
     { id: '5_7', lvl: 5, name: 'Cursed Boombox', cost: 550, type: 'decor', icon: '📻' },
     { id: '5_8', lvl: 5, name: 'Ghost of the Midway', cost: 600, type: 'decor', icon: '👻' },
     { id: '5_9', lvl: 5, name: 'Scene Queen Crown', cost: 700, type: 'wearable', icon: '👑' },
-    { id: '5_10', lvl: 5, name: '100% RawrXD Badge', cost: 1000, type: 'badge', icon: '🏆' }
+    { id: '5_10', lvl: 5, name: '100% RawrXD Badge', cost: 1000, type: 'badge', icon: '🏆' },
+    
+    // Extravagant Game-Specific Prizes (Unlocked at 100+ points on the respective game)
+    { id: '6_1', lvl: 99, reqGame: 'safety-pin-sniper', reqScore: 100, name: 'Gold Safety Pin', cost: 1000, type: 'wearable', icon: '🧷' },
+    { id: '6_2', lvl: 99, reqGame: 'safety-pin-sniper', reqScore: 100, name: 'Sniper Scope Glasses', cost: 1200, type: 'wearable', icon: '🕶️' },
+    { id: '6_3', lvl: 99, reqGame: 'safety-pin-sniper', reqScore: 100, name: 'Neon Balloon Animal', cost: 1500, type: 'decor', icon: '🎈' },
+    { id: '6_4', lvl: 99, reqGame: 'safety-pin-sniper', reqScore: 100, name: 'Platinum Pin Badge', cost: 2000, type: 'badge', icon: '🏅' },
+    { id: '6_5', lvl: 99, reqGame: 'safety-pin-sniper', reqScore: 100, name: 'Sniper\'s Trophy', cost: 3000, type: 'decor', icon: '🏆' },
+
+    { id: '7_1', lvl: 99, reqGame: 'liner-layer', reqScore: 100, name: 'Glow Stick Crown', cost: 1000, type: 'wearable', icon: '👑' },
+    { id: '7_2', lvl: 99, reqGame: 'liner-layer', reqScore: 100, name: 'Neon Eyeliner Paint', cost: 1200, type: 'wearable', icon: '🖌️' },
+    { id: '7_3', lvl: 99, reqGame: 'liner-layer', reqScore: 100, name: 'Raver Glow Gloves', cost: 1500, type: 'wearable', icon: '🧤' },
+    { id: '7_4', lvl: 99, reqGame: 'liner-layer', reqScore: 100, name: 'Laser Pointer Ring', cost: 2000, type: 'wearable', icon: '💍' },
+    { id: '7_5', lvl: 99, reqGame: 'liner-layer', reqScore: 100, name: 'Tracing Master Trophy', cost: 3000, type: 'decor', icon: '🏆' },
+
+    { id: '8_1', lvl: 99, reqGame: 'plushie-plunge', reqScore: 100, name: 'Golden Gloomy Bear', cost: 1000, type: 'decor', icon: '🧸' },
+    { id: '8_2', lvl: 99, reqGame: 'plushie-plunge', reqScore: 100, name: 'Giant Claw Prop', cost: 1200, type: 'decor', icon: '🪝' },
+    { id: '8_3', lvl: 99, reqGame: 'plushie-plunge', reqScore: 100, name: 'Plushie Pile Bed', cost: 1500, type: 'decor', icon: '🛌' },
+    { id: '8_4', lvl: 99, reqGame: 'plushie-plunge', reqScore: 100, name: 'Arcade Token Pendant', cost: 2000, type: 'wearable', icon: '🪙' },
+    { id: '8_5', lvl: 99, reqGame: 'plushie-plunge', reqScore: 100, name: 'Claw Master Trophy', cost: 3000, type: 'decor', icon: '🏆' },
+
+    { id: '9_1', lvl: 99, reqGame: 'chain-linker', reqScore: 100, name: 'Titanium Wallet Chain', cost: 1000, type: 'wearable', icon: '⛓️' },
+    { id: '9_2', lvl: 99, reqGame: 'chain-linker', reqScore: 100, name: 'Padlock Necklace', cost: 1200, type: 'wearable', icon: '🔒' },
+    { id: '9_3', lvl: 99, reqGame: 'chain-linker', reqScore: 100, name: 'Studded Dog Collar', cost: 1500, type: 'wearable', icon: '🦮' },
+    { id: '9_4', lvl: 99, reqGame: 'chain-linker', reqScore: 100, name: 'Heavy Metal Keys', cost: 2000, type: 'decor', icon: '🗝️' },
+    { id: '9_5', lvl: 99, reqGame: 'chain-linker', reqScore: 100, name: 'Chain Lord Trophy', cost: 3000, type: 'decor', icon: '🏆' },
+
+    { id: '10_1', lvl: 99, reqGame: 'vinyl-spin', reqScore: 100, name: 'Solid Gold Record', cost: 1000, type: 'decor', icon: '📀' },
+    { id: '10_2', lvl: 99, reqGame: 'vinyl-spin', reqScore: 100, name: 'Diamond Turntable', cost: 1200, type: 'decor', icon: '🎛️' },
+    { id: '10_3', lvl: 99, reqGame: 'vinyl-spin', reqScore: 100, name: 'DJ Headphones', cost: 1500, type: 'wearable', icon: '🎧' },
+    { id: '10_4', lvl: 99, reqGame: 'vinyl-spin', reqScore: 100, name: 'Rhythm Master Badge', cost: 2000, type: 'badge', icon: '🎵' },
+    { id: '10_5', lvl: 99, reqGame: 'vinyl-spin', reqScore: 100, name: 'Maestro Trophy', cost: 3000, type: 'decor', icon: '🏆' },
+
+    { id: '11_1', lvl: 99, reqGame: 'skull-shuffle', reqScore: 100, name: 'Diamond Skull Pet', cost: 1000, type: 'decor', icon: '💀' },
+    { id: '11_2', lvl: 99, reqGame: 'skull-shuffle', reqScore: 100, name: 'Golden Cup Set', cost: 1200, type: 'decor', icon: '🏺' },
+    { id: '11_3', lvl: 99, reqGame: 'skull-shuffle', reqScore: 100, name: 'Eyeball Ring', cost: 1500, type: 'wearable', icon: '👁️' },
+    { id: '11_4', lvl: 99, reqGame: 'skull-shuffle', reqScore: 100, name: 'Magician\'s Top Hat', cost: 2000, type: 'wearable', icon: '🎩' },
+    { id: '11_5', lvl: 99, reqGame: 'skull-shuffle', reqScore: 100, name: 'Illusionist Trophy', cost: 3000, type: 'decor', icon: '🏆' },
+
+    { id: '12_1', lvl: 99, reqGame: 'peg-punk', reqScore: 100, name: 'Golden Skull Dropper', cost: 1000, type: 'decor', icon: '💀' },
+    { id: '12_2', lvl: 99, reqGame: 'peg-punk', reqScore: 100, name: 'Ruby Peg Necklace', cost: 1200, type: 'wearable', icon: '📍' },
+    { id: '12_3', lvl: 99, reqGame: 'peg-punk', reqScore: 100, name: 'Neon Bumpers', cost: 1500, type: 'decor', icon: '⭕' },
+    { id: '12_4', lvl: 99, reqGame: 'peg-punk', reqScore: 100, name: 'Plinko Master Badge', cost: 2000, type: 'badge', icon: '🎯' },
+    { id: '12_5', lvl: 99, reqGame: 'peg-punk', reqScore: 100, name: 'Bumper King Trophy', cost: 3000, type: 'decor', icon: '🏆' },
+
+    { id: '13_1', lvl: 99, reqGame: 'vans-vault', reqScore: 100, name: 'Diamond Studded Vans', cost: 1000, type: 'wearable', icon: '👟' },
+    { id: '13_2', lvl: 99, reqGame: 'vans-vault', reqScore: 100, name: 'Vault Key Pendant', cost: 1200, type: 'wearable', icon: '🗝️' },
+    { id: '13_3', lvl: 99, reqGame: 'vans-vault', reqScore: 100, name: 'Platinum Skateboard', cost: 1500, type: 'decor', icon: '🛹' },
+    { id: '13_4', lvl: 99, reqGame: 'vans-vault', reqScore: 100, name: 'Vans VIP Badge', cost: 2000, type: 'badge', icon: '🎫' },
+    { id: '13_5', lvl: 99, reqGame: 'vans-vault', reqScore: 100, name: 'Vault Breaker Trophy', cost: 3000, type: 'decor', icon: '🏆' },
+
+    { id: '14_1', lvl: 99, reqGame: 'neon-slots', reqScore: 100, name: 'Gold Slot Token', cost: 1000, type: 'decor', icon: '🪙' },
+    { id: '14_2', lvl: 99, reqGame: 'neon-slots', reqScore: 100, name: 'Lucky Horseshoe Piercing', cost: 1200, type: 'wearable', icon: '🧲' },
+    { id: '14_3', lvl: 99, reqGame: 'neon-slots', reqScore: 100, name: 'Cherry Bomb Earrings', cost: 1500, type: 'wearable', icon: '🍒' },
+    { id: '14_4', lvl: 99, reqGame: 'neon-slots', reqScore: 100, name: 'Jackpot Crown', cost: 2000, type: 'wearable', icon: '👑' },
+    { id: '14_5', lvl: 99, reqGame: 'neon-slots', reqScore: 100, name: 'High Roller Trophy', cost: 3000, type: 'decor', icon: '🏆' },
+
+    { id: '15_1', lvl: 99, reqGame: 'hypnotic-wheel', reqScore: 100, name: 'Crystal Spinner', cost: 1000, type: 'decor', icon: '🔮' },
+    { id: '15_2', lvl: 99, reqGame: 'hypnotic-wheel', reqScore: 100, name: 'Hypno-Spiral Eye Contacts', cost: 1200, type: 'wearable', icon: '🌀' },
+    { id: '15_3', lvl: 99, reqGame: 'hypnotic-wheel', reqScore: 100, name: 'Fortune Teller Scarf', cost: 1500, type: 'wearable', icon: '🧣' },
+    { id: '15_4', lvl: 99, reqGame: 'hypnotic-wheel', reqScore: 100, name: 'Wheel of Fate Badge', cost: 2000, type: 'badge', icon: '🎡' },
+    { id: '15_5', lvl: 99, reqGame: 'hypnotic-wheel', reqScore: 100, name: 'Spinner Trophy', cost: 3000, type: 'decor', icon: '🏆' },
+
+    { id: '16_1', lvl: 99, reqGame: 'devils-dice', reqScore: 100, name: 'Fuzzy Dice Mirror Hanger', cost: 1000, type: 'decor', icon: '🎲' },
+    { id: '16_2', lvl: 99, reqGame: 'devils-dice', reqScore: 100, name: 'Flaming Number 7 Tattoo', cost: 1200, type: 'wearable', icon: '🔥' },
+    { id: '16_3', lvl: 99, reqGame: 'devils-dice', reqScore: 100, name: 'Devil Horns Headband', cost: 1500, type: 'wearable', icon: '👿' },
+    { id: '16_4', lvl: 99, reqGame: 'devils-dice', reqScore: 100, name: 'Snake Eyes Ring', cost: 2000, type: 'wearable', icon: '🐍' },
+    { id: '16_5', lvl: 99, reqGame: 'devils-dice', reqScore: 100, name: 'Dice God Trophy', cost: 3000, type: 'decor', icon: '🏆' },
+
+    { id: '17_1', lvl: 99, reqGame: 'razor-roulette', reqScore: 100, name: 'Razor Blade Necklace', cost: 1000, type: 'wearable', icon: '🪒' },
+    { id: '17_2', lvl: 99, reqGame: 'razor-roulette', reqScore: 100, name: 'Black/Red Checkered Vest', cost: 1200, type: 'wearable', icon: '🦺' },
+    { id: '17_3', lvl: 99, reqGame: 'razor-roulette', reqScore: 100, name: 'Gold Roulette Ball', cost: 1500, type: 'decor', icon: '🟡' },
+    { id: '17_4', lvl: 99, reqGame: 'razor-roulette', reqScore: 100, name: 'Dealer Visor', cost: 2000, type: 'wearable', icon: '🧢' },
+    { id: '17_5', lvl: 99, reqGame: 'razor-roulette', reqScore: 100, name: 'Roulette Shark Trophy', cost: 3000, type: 'decor', icon: '🏆' },
+
+    { id: '18_1', lvl: 99, reqGame: 'blackjack-brawl', reqScore: 100, name: 'Spade Card Earrings', cost: 1000, type: 'wearable', icon: '♠️' },
+    { id: '18_2', lvl: 99, reqGame: 'blackjack-brawl', reqScore: 100, name: 'Poker Chip Choker', cost: 1200, type: 'wearable', icon: '🃏' },
+    { id: '18_3', lvl: 99, reqGame: 'blackjack-brawl', reqScore: 100, name: 'Golden Deck of Cards', cost: 1500, type: 'decor', icon: '🎴' },
+    { id: '18_4', lvl: 99, reqGame: 'blackjack-brawl', reqScore: 100, name: 'Ace of Hearts Jacket', cost: 2000, type: 'wearable', icon: '🧥' },
+    { id: '18_5', lvl: 99, reqGame: 'blackjack-brawl', reqScore: 100, name: 'Blackjack Card Trophy', cost: 3000, type: 'decor', icon: '🏆' }
   ],
 
   login(username) {

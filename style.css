@@ -137,7 +137,7 @@ h1, h2, h3, .handwritten {
   margin-top: 15px;
 }
 .board-path-container {
-  height: 1200px;
+  height: 2000px;
   position: relative;
   width: 100%;
 }
@@ -231,13 +231,13 @@ canvas { width: 100%; height: 100%; border-bottom: 5px solid var(--pink); border
   display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; padding-bottom: 80px;
 }
 .prize-item {
-  width: 140px; height: 170px; background: #f4f4f4; border: 1px solid #ccc;
-  padding: 10px 10px 30px 10px; box-shadow: 5px 5px 15px rgba(0,0,0,0.6);
-  position: relative; font-family: var(--font-sec); font-size: 1.6rem; color: #111;
+  width: 220px; height: 260px; background: #f4f4f4; border: 2px solid #ccc;
+  padding: 15px 15px 40px 15px; box-shadow: 8px 8px 25px rgba(0,0,0,0.6);
+  position: relative; font-family: var(--font-sec); font-size: 2.2rem; color: #111;
   display: flex; flex-direction: column; align-items: center; justify-content: center;
   transition: transform 0.2s;
 }
-.prize-icon { font-size: 4rem; display: block; margin-bottom: 5px; text-align: center;}
+.prize-icon { font-size: 7rem; display: block; margin-bottom: 5px; text-align: center;}
 .prize-item.locked { filter: grayscale(100%) brightness(50%); background: #888;}
 .prize-item.unlocked { filter: none; border-color: var(--pink); box-shadow: 0 0 15px var(--pink); }
 

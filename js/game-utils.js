@@ -407,7 +407,7 @@ window.GameUtils = {
     this.applyGrit(ctx, width, height);
   },
 
-  drawPlinkoBoard(ctx, width, height, time) {
+  drawPlinkoBoard(ctx, width, height, time, pegs = []) {
     // Hard battered vertical wood
     ctx.fillStyle = '#4a2f1d';
     ctx.fillRect(0, 0, width, height);
@@ -439,12 +439,21 @@ window.GameUtils = {
     ctx.fillStyle = '#d4af37';
     ctx.strokeStyle = '#000';
     ctx.lineWidth = 2;
-    for(let y=150; y<height-150; y+=80) {
-        let offset = (y % 160 === 0) ? 0 : 40;
-        for(let x=40+offset; x<width-30; x+=80) {
+    if (pegs && pegs.length > 0) {
+        for(let p of pegs) {
+            let x = p.x; let y = p.y;
             ctx.beginPath(); ctx.arc(x, y, 6, 0, Math.PI*2); ctx.fill(); ctx.stroke();
             ctx.fillStyle = 'rgba(255,255,255,0.5)'; ctx.beginPath(); ctx.arc(x-2, y-2, 2, 0, Math.PI*2); ctx.fill(); ctx.fillStyle = '#d4af37';
             ctx.fillStyle = 'rgba(0,0,0,0.5)'; ctx.beginPath(); ctx.arc(x+2, y+2, 2, 0, Math.PI*2); ctx.fill(); ctx.fillStyle = '#d4af37';
+        }
+    } else {
+        for(let y=150; y<height-150; y+=80) {
+            let offset = (y % 160 === 0) ? 0 : 40;
+            for(let x=40+offset; x<width-30; x+=80) {
+                ctx.beginPath(); ctx.arc(x, y, 6, 0, Math.PI*2); ctx.fill(); ctx.stroke();
+                ctx.fillStyle = 'rgba(255,255,255,0.5)'; ctx.beginPath(); ctx.arc(x-2, y-2, 2, 0, Math.PI*2); ctx.fill(); ctx.fillStyle = '#d4af37';
+                ctx.fillStyle = 'rgba(0,0,0,0.5)'; ctx.beginPath(); ctx.arc(x+2, y+2, 2, 0, Math.PI*2); ctx.fill(); ctx.fillStyle = '#d4af37';
+            }
         }
     }
 
